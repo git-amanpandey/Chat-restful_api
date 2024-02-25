@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Message</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f5f5f5;
+                color: #333;
+                margin: 0;
+                padding: 0;
+            }
+                 p {
+                    margin-left: 40px; 
+                     padding: 10px; 
+                     background-color: #f0f8ff; 
+                     border: 1px solid #3498db; 
+                      border-radius: 5px; 
+                     font-size: 1em; 
+                     color: #333; 
+                     display: inline-block;
+                    }
+            
+            h1 {
+                color: #075e54;
+                margin: 20px;
+                font-size: 1.5em;
+            }
+    
+            .edit-info {
+                margin: 10px 20px;
+                font-size: 0.9em;
+            }
+    
+            .edit-form {
+                max-width: 400px;
+                margin: 20px;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+    
+            label {
+                display: block;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+    
+            textarea {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+    
+            .btn {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                background-color: #128C7E;
+                color: #fff;
+                font-size: 1em;
+                cursor: pointer;
+            }
+    
+            .btn:hover {
+                background-color: #075e54;
+            }
+        </style>
+    </head>
+<body>
+
+    <h1>Edit Message of id <%= chat._id %></h1>
+    <p>This message is sent from <b><%= chat.from %> </b>to <b>   <%= chat.to %></b>  </p>
+    <div class="edit-form">
+        <form action="/chats/<%=chat._id%>?_method=PUT" method="post">
+            <label for="msg">Edit Message:</label>
+            <textarea id="msg" name="msg" rows="5" placeholder="Enter your edited message here"><%= chat.msg %></textarea>
+
+            <button type="submit" class="btn">Save Changes</button>
+        </form>
+    </div>
+
+</body>
+</html>
